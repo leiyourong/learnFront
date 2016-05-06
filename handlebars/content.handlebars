@@ -1,0 +1,34 @@
+<ul>
+    <li><span>It is </pan>{{barInfo}}
+    <li><span>Created by </pan>{{{autoInfo.name}}}
+    {{#pro}}
+      <li>{{addone @index}}{{lang}}{{grade}}
+        {{#learner}}
+            <div>{{../index}}{{addone @index}}&nbsp;{{name}}</div>
+        {{/learner}}
+    {{/pro}}
+
+    {{! Note:Handlebars.registerHelper}}
+    {{#each pro}}
+      <li>{{this.lang}}
+      {{#if learner}}
+         <h6>{{../autoInfo.name}}</h6>
+      {{/if}}
+
+    {{/each}}
+
+    {{#if list}}
+        {{#each list}}
+            <li>{{this}}</li>
+        {{/each}}
+    {{else}}
+        <li>{{error}}</li>
+    {{/if}}
+</ul>
+{{#print 'xxx' 'yyy'}}
+<div>ppp{{this}}</div>
+{{/print}}
+<div>
+{{print2 'xxx'}}
+</div>
+<div id = 'react'></div>
