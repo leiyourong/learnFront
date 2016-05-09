@@ -13,7 +13,7 @@ module.exports = {
     context : path.resolve( __dirname,'../src'),
     entry : {
       //  bundle:["./detail.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
-      //  bundle:["./reactTest.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
+        // bundle:["./reactTest.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
         bundle:["./h5.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
         vendor:['jquery']
     },
@@ -32,10 +32,9 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    presets: ['react','es2015']
+                    presets: ['react','es2015','stage-0']
                 }
             },
-          //  { test: /\.jsx?$/, loaders: ['jsx?harmony']},
             { test:/\.(png|jpg)$/,loader:"url-loader?limit=8192"},
             { test: /\.handlebars$/, loader: "handlebars-loader" }
         ]
@@ -46,7 +45,7 @@ module.exports = {
     plugins:[
        new HtmlwebpackPlugin({
         title : '为毛重复了？',
-      //  template: path.resolve('./public/tmpl/index.tmpl'),
+        // template: path.resolve('./public/tmpl/index.tmpl'),
         template: path.resolve('./public/tmpl/h5.tmpl'),
         hash: true,
         inject: true,
@@ -58,12 +57,10 @@ module.exports = {
                warnings: false
             }
         }),
-        /*
-        new OpenBrowserPlugin({
-             url: 'http://localhost:8080'
-        }),
-        devFlagPlugin
-        */
+        // new OpenBrowserPlugin({
+        //      url: 'http://localhost:8080'
+        // }),
+        // devFlagPlugin
 
         new CommonsChunkPlugin({
           name:['commonChunk']

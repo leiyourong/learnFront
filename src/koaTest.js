@@ -1,5 +1,6 @@
 var koa = require('koa')
 var app = koa()
+var path = require('path');
 var onerror = require('koa-onerror');
 var staticRes = require('koa-static');
 var staticCache = require('koa-static-cache');
@@ -9,7 +10,7 @@ var myRouter = new Router();
 myRouter.get('/',function *(next){
     console.log(this.method+' /');
     yield next;
-    
+
 })
 
 myRouter.get('/e',function *(){
@@ -25,7 +26,6 @@ myRouter.get('/error',function *(){
 
 app.use(myRouter.routes());
 
-var path = require('path');
 onerror(app);
 app.use(staticRes(path.resolve(__dirname,'../public')))
 /*
@@ -50,13 +50,13 @@ app.use(function* (next) {
         'status': status,
         'message': message
       };
-      if (status == 500) { 
+      if (status == 500) {
         // 触发 koa 统一错误事件，可以打印出详细的错误堆栈 log
         this.app.emit('error', e, this);
       }
       return;
     }
-    
+
     this.status = status;
     // 根据 status 渲染不同的页面
     if (status == 403) {

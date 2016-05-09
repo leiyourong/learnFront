@@ -290,6 +290,8 @@ const Repos = React.createClass({
 
 //Use ES6
 class Home extends React.Component {
+    static defaultProps = {
+    }
     render(){
         return (<div>Welcome</div>)
     }

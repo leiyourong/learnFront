@@ -1,6 +1,20 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script>
+    function dragstart(ev){
+      ev.dataTransfer.setData('img',ev.target.id)
+    }
+    function dragover(ev){
+      ev.preventDefault()
+    }
+    function drop(ev){
+      ev.preventDefault()
+      var data = ev.dataTransfer.getData('img')
+      if(ev.target.tagName === 'DIV')
+        ev.target.appendChild(document.getElementById(data))
+    }
+    </script>
   </head>
   <body>
       <canvas id="myCanvas"></canvas>
@@ -12,5 +26,70 @@
         </datalist>
         <output name="inputName" for="value of mylist">初始化</output>
       </form>
+      <details style="width:200px">
+        <summary>这是一个标题</summary>
+        <p>我是隐藏的内容</p>
+      </details>
+      <progress value="32" max="50"></progress>
+      <time datetime="2016-05-08" pubdate>今天</time>
+      <bdo dir="rtl">1</bdi>4
+      <bdo dir="ltr">1</bdi>4
+      <figure>
+        <img src="../image/html5.jpg" alt="h5图片" />
+        <figcaption>figure标签</figcaption>
+      </figure>
+      <!--
+      <h1>The Wiki Center Of Exampland</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/events">Current Events</a></li>
+            ...more...
+        </ul>
+    </nav>
+    <article>
+        <header>
+            <h1> Demos in Exampland</h1>
+            <p>Written by A. N. Other.</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#public">Public demonstrations</a></li>
+                <li><a href="#destroy">Demolitions</a></li>
+                ...more...
+            </ul>
+        </nav>
+        <div>
+            <section id="public">
+                <h1>Public demonstrations</h1>
+                <p> ...more...</p>
+            </section>
+            ...more...
+        </div>
+        <footer>
+            <p><a href="?edit">Edit</a> | <a href="?delete">Delete</a> | <a href="?Rename">Rename</a></p>
+        </footer>
+    </article>
+    <footer>
+        <p><small>© copyright 1998 Exampland Emperor</small></p>
+    </footer>
+  -->
+    Color:<input type="color" name="color" />
+    date:<input type="date" name="date" />
+    datetime:<input type="datetime" name="datetime" />
+    datetime-local:<input type="datetime-local" name="datetime-local" />
+    email:<input type="email" name="email" />
+    month:<input type="month" name="month" />
+    week:<input type="week" name="week" />
+    number:<input type="number" name="number" />
+    range:<input type="range" name="range" min="1" max="10" />
+    <input id="btn" type="button" value="获取值" /><br>
+
+    <div ondragover="dragover(event)" ondrop="drop(event)" style="float:left;width:200px;height:220px;border:2px solid #eeeeee">
+    </div>
+    <div ondragover="dragover(event)" ondrop="drop(event)" style="float:left;width:200px;height:220px;border:2px solid #eeeeee">
+      <img id="dragsh" src="../image/html5.jpg" alt="h5图片" draggable="true" ondragstart="dragstart(event)" />
+    </div>
+
   </body>
 </html>
