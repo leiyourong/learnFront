@@ -12,9 +12,9 @@ var devFlagPlugin = new webpack.DefinePlugin({
 module.exports = {
     context : path.resolve( __dirname,'../src'),
     entry : {
-      //  bundle:["./detail.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
-        // bundle:["./reactTest.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
-        bundle:["./h5.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
+        // bundle:["./detail.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
+        bundle:["./reactTest.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
+        // bundle:["./h5.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
         vendor:['jquery']
     },
     output :{
@@ -44,9 +44,9 @@ module.exports = {
     },
     plugins:[
        new HtmlwebpackPlugin({
-        title : '为毛重复了？',
-        // template: path.resolve('./public/tmpl/index.tmpl'),
-        template: path.resolve('./public/tmpl/h5.tmpl'),
+        title : 'XXXXX',
+        template: path.resolve('./public/tmpl/index.tmpl'),
+        // template: path.resolve('./public/tmpl/h5.tmpl'),
         hash: true,
         inject: true,
         filename: 'index.html'

@@ -5,15 +5,19 @@ var webpackDevMiddleware = require('koa-webpack-dev-middleware');
 var webpackHotMiddleware = require('koa-webpack-hot-middleware');
 var staticRes = require('koa-static');
 var path = require('path');
+
+// need open when to visit a pic
 // var convert = require('koa-convert');
 // var historyApiFallback = require('koa-connect-history-api-fallback');
+
 var config = require('./webpack.config');
 var compiler = webpack(config);
 
 // app.use(convert(historyApiFallback({
 //   verbose: false
 // })))
-app.use(staticRes(path.resolve(__dirname,'../public')));
+// app.use(staticRes(path.resolve(__dirname,'../public')));
+
 app.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
     stats: {colors: true}
