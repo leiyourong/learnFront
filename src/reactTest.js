@@ -299,11 +299,20 @@ class Home extends React.Component {
 
 //activeStyle={{ color: 'red' }}
 const About = React.createClass({
+  contextTypes:{
+    router:React.PropTypes.object.isRequired,
+    userName:React.PropTypes.string
+  },
+  changeRoute:function(){
+    this.context.router.push('/')
+  },
   render:function(){
+    this.context.userName = {'key':'213'}
     return (
       <div>
         About
-        <Link to='/about/child' activeClassName='link-active' >child</Link>
+        <Link to='/about/child' activeClassName='link-active' >child</Link><br />
+        <input type="button" value="跳转" onClick={this.changeRoute} />
         {this.props.children}
       </div>
     )
