@@ -29,6 +29,7 @@ const ul3 = <ul className='my-list3'>
               <div dangerouslySetInnerHTML={{__html: 'First &middot; Second'}} />
               <li id='animation'></li>
               <li id='cloneElement'></li>
+              <a href="mailto:460951178@qq.com?body=TestTest">发邮件</a>
           </ul>;
 render(ul3,reactNode);
 

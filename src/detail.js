@@ -3,6 +3,7 @@
 import p from '../my_module/log';
 var mycss = require("../public/css/b-gray")
 var handlebars = require('handlebars/runtime')
+var mongoose = require('mongoose')
 
 handlebars.registerHelper('print',function(item1,item2,options){
   console.log(options.fn(this))
@@ -12,11 +13,9 @@ handlebars.registerHelper('print',function(item1,item2,options){
 handlebars.registerHelper('print2',function(item1,options){
   return item1
 })
-
 handlebars.registerHelper('addone',function(index){
   return index+1;
 })
-
 document.write("<div class={mycss.h1}>Hello Front!</div>")
 var img1 = document.createElement("img");
 img1.src = require('../public/image/small.jpg');
@@ -31,11 +30,8 @@ var content = {
         {lang:'JAVA ',grade:100,learner:[{name:'li'},{name:'lei'}]},
         {lang:'PHP ',grade:0},
       ],
-
     error:'list不存在'
 };
-
-
 var ele = require('../handlebars/content.handlebars')(content);
 $('body').append(ele);
 

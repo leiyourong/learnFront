@@ -12,8 +12,8 @@ var devFlagPlugin = new webpack.DefinePlugin({
 module.exports = {
     context : path.resolve( __dirname,'../src'),
     entry : {
-        // bundle:["./detail.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
-        bundle:["./reactTest.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
+        bundle:["./detail.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
+        // bundle:["./reactTest.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
         // bundle:["./h5.js","webpack/hot/dev-server","webpack-hot-middleware/client?reload=true"],
         vendor:['jquery']
     },
@@ -35,6 +35,7 @@ module.exports = {
                     presets: ['react','es2015','stage-0']
                 }
             },
+            { test: /\.json$/, loader: "json"},
             { test:/\.(png|jpg)$/,loader:"url-loader?limit=8192"},
             { test: /\.handlebars$/, loader: "handlebars-loader" }
         ]
