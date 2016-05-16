@@ -3,7 +3,6 @@
 import p from '../my_module/log';
 var mycss = require("../public/css/b-gray")
 var handlebars = require('handlebars/runtime')
-var mongoose = require('mongoose')
 
 handlebars.registerHelper('print',function(item1,item2,options){
   console.log(options.fn(this))
@@ -16,7 +15,7 @@ handlebars.registerHelper('print2',function(item1,options){
 handlebars.registerHelper('addone',function(index){
   return index+1;
 })
-document.write("<div class={mycss.h1}>Hello Front!</div>")
+document.write("<div class={mycss.h1}>HeWllo Front!</div>")
 var img1 = document.createElement("img");
 img1.src = require('../public/image/small.jpg');
 document.body.appendChild(img1);

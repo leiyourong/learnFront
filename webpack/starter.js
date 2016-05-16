@@ -6,7 +6,11 @@ var webpackHotMiddleware = require('koa-webpack-hot-middleware');
 var staticRes = require('koa-static');
 var path = require('path');
 
-// need open when to visit a pic
+// add for mongodb
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/test');
+
+// add for h5.js test
 // var convert = require('koa-convert');
 // var historyApiFallback = require('koa-connect-history-api-fallback');
 
