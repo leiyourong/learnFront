@@ -51,11 +51,11 @@ module.exports = {
         filename: 'index.html'
        }),
 
-       new uglifyJsPlugin({
-           compress: {
-               warnings: false
-            }
-        }),
+      //  new uglifyJsPlugin({
+      //      compress: {
+      //          warnings: false
+      //       }
+      //   }),
         // new OpenBrowserPlugin({
         //      url: 'http://localhost:8080'
         // }),
@@ -78,8 +78,7 @@ module.exports = {
 
     ],
 
-
-  //  devtool: 'cheap-module-eval-source-map',  //错误报在原js上
+    devtool: 'source-map',  //错误报在原js上
     devServer: {
       historyApiFallback: true,
       hot: true,

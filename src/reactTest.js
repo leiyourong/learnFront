@@ -31,6 +31,7 @@ const ul3 = <ul className='my-list3'>
               <li id='cloneElement'></li>
               <a href="mailto:460951178@qq.com?body=TestTest">发邮件</a>
               <li id='app'></li>
+              <li id='count'></li>
           </ul>;
 render(ul3,reactNode);
 
@@ -335,19 +336,19 @@ render(
 )
 
 
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions'
-import { createStore } from 'redux'
-import todoApp from './reducers'
-import { Provider } from 'react-redux'
-let store = createStore(todoApp)
+// import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions'
+// import { createStore } from 'redux'
+// import todoApp from './reducers'
+// import { Provider } from 'react-redux'
+// import App from './containers/App'
+// let store = createStore(todoApp)
 // 打印初始状态
-console.log(store.getState())
-
+//console.log(store.getState())
 // 每次 state 更新时，打印日志
 // 注意 subscribe() 返回一个函数用来注销监听器
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
+// let unsubscribe = store.subscribe(() =>
+//   console.log(store.getState())
+// )
 
 /*
 // 发起一系列 action
@@ -358,14 +359,38 @@ store.dispatch(completeTodo(0))
 store.dispatch(completeTodo(1))
 store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
 */
-
-// 停止监听 state 更新
-unsubscribe();
-
-import App from './containers/App'
+/*
 render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('app')
+)
+// 停止监听 state 更新
+unsubscribe();
+*/
+import CountApp from './containers/CountApp'
+import countReducer from './reducers/CountReducer'
+import {compose,applyMiddleware,createStore} from 'redux'
+import thunk from 'redux-thunk'
+import {Provider} from 'react-redux'
+const store = createStore(
+  countReducer,applyMiddleware(thunk),
+//  window.devToolsExtension ? window.devToolsExtension() : f => f
+)
+// const createStoreDevTools = compose(
+//   window.devToolsExtension ? window.devToolsExtension() : f => f
+// )(createStore);
+//
+// const store = createStoreDevTools(countReducer,applyMiddleware(thunk));
+
+
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+)
+render(
+  <Provider store={store}>
+    <CountApp />
+  </Provider>,
+  document.getElementById('count')
 )
