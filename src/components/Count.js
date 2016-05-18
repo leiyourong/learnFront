@@ -18,6 +18,8 @@ class Count extends Component{
       this.props.subNum(num)
     }else if(e.target.value === 'AddOne'){
       this.props.addOne()
+    }else if(e.target.value === 'Clear'){
+      this.props.clear()
     }else{
       alert('请联系我!')
     }
@@ -25,11 +27,12 @@ class Count extends Component{
   render(){
     return (
       <div>
-        <input ref='numInput' type="number" required />
+        <input ref='numInput' type="number" />
         <div>num：{this.props.num}</div>
         <input type='button' onClick={e => this.calcu(e)} value='Add' />
         <input type='button' onClick={e => this.calcu(e)} value='Sub' />
         <input type='button' onClick={e => this.calcu(e)} value='AddOne' />
+        <input type='button' onClick={e => this.calcu(e)} value='Clear' />
       </div>
     )
   }

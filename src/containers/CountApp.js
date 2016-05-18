@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Count from '../components/Count'
 import {connect} from 'react-redux'
-import {addNum,subNum,addOne} from '../actions/CountAction'
+import {addNum,subNum,addOne,clear} from '../actions/CountAction'
 
 class CountApp extends Component{
   render(){
@@ -18,6 +18,9 @@ class CountApp extends Component{
           }
           addOne = {
             () => dispatch(addOne())
+          }
+          clear = {
+            () => dispatch(clear())
           }
          />
       </div>

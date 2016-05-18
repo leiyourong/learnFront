@@ -373,10 +373,10 @@ import CountApp from './containers/CountApp'
 import countReducer from './reducers/CountReducer'
 import {compose,applyMiddleware,createStore} from 'redux'
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 import {Provider} from 'react-redux'
 const store = createStore(
-  countReducer,applyMiddleware(thunk),
-//  window.devToolsExtension ? window.devToolsExtension() : f => f
+  countReducer,applyMiddleware(thunk,logger())
 )
 // const createStoreDevTools = compose(
 //   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -384,10 +384,6 @@ const store = createStore(
 //
 // const store = createStoreDevTools(countReducer,applyMiddleware(thunk));
 
-
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
 render(
   <Provider store={store}>
     <CountApp />
