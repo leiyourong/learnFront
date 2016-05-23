@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Count from '../components/Count'
 import {connect} from 'react-redux'
-import {addNum,subNum,addOne,clear} from '../actions/CountAction'
+import {addNum,subNum,addOne,clear,info} from '../actions/CountAction'
 
 class CountApp extends Component{
   render(){
@@ -22,6 +22,10 @@ class CountApp extends Component{
           clear = {
             () => dispatch(clear())
           }
+          info = {
+            () => dispatch(info())
+          }
+          dataInfo = {this.props.dataInfo}
          />
       </div>
     )
@@ -30,7 +34,8 @@ class CountApp extends Component{
 function state2Props(state){
   //state 0 转到 props上
   return {
-    num:state
+    num:state.countNum,
+    dataInfo:state.dataInfo
   }
 }
 

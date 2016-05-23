@@ -4,7 +4,9 @@ class Count extends Component{
   propTypes:{
     num:PropTypes.number.isRequired,
     addNum:PropTypes.func.isRequired,
-    subNum:PropTypes.func.isRequired
+    subNum:PropTypes.func.isRequired,
+    addOne:PropTypes.func.isRequired,
+    clear:PropTypes.func.isRequired
   }
   calcu (e) {
     let input = this.refs.numInput
@@ -20,11 +22,14 @@ class Count extends Component{
       this.props.addOne()
     }else if(e.target.value === 'Clear'){
       this.props.clear()
+    }else if(e.target.value === 'Info'){
+      this.props.info()
     }else{
       alert('请联系我!')
     }
   }
   render(){
+    var dataInfos = this.props.dataInfo
     return (
       <div>
         <input ref='numInput' type="number" />
@@ -33,6 +38,14 @@ class Count extends Component{
         <input type='button' onClick={e => this.calcu(e)} value='Sub' />
         <input type='button' onClick={e => this.calcu(e)} value='AddOne' />
         <input type='button' onClick={e => this.calcu(e)} value='Clear' />
+        <input type='button' onClick={e => this.calcu(e)} value='Info' />
+        <ul>
+        {
+          Object.keys(dataInfos).map(function(property){
+            return (<li key={property}>key:{property}  value:{dataInfos[property]}</li>)
+          })
+        }
+        </ul>
       </div>
     )
   }

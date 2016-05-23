@@ -1,5 +1,6 @@
-import { ADD_NUM,SUB_NUM,CLEAR } from '../actions/CountAction'
-import { handleActions } from 'redux-actions'
+import { ADD_NUM,SUB_NUM,CLEAR,INFO } from '../actions/CountAction'
+import { handleAction,handleActions } from 'redux-actions'
+import { combineReducers } from 'redux'
 // function countNum(state = 0,action){
 //   switch (action.type) {
 //     case ADD_NUM:
@@ -22,5 +23,14 @@ const countNum = handleActions({
     return 0
   }
 } , 0)
+const dataInfo = handleActions({
+  INFO: (state, action) => {
+    return Object.assign({},state,action.payload)
+  }
+} , {})
 
-export default countNum
+const rootReducer = combineReducers({
+    countNum,
+    dataInfo
+})
+export default rootReducer;

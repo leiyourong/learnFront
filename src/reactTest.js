@@ -335,48 +335,15 @@ render(
   document.getElementById('router')
 )
 
-
-// import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions'
-// import { createStore } from 'redux'
-// import todoApp from './reducers'
-// import { Provider } from 'react-redux'
-// import App from './containers/App'
-// let store = createStore(todoApp)
-// 打印初始状态
-//console.log(store.getState())
-// 每次 state 更新时，打印日志
-// 注意 subscribe() 返回一个函数用来注销监听器
-// let unsubscribe = store.subscribe(() =>
-//   console.log(store.getState())
-// )
-
-/*
-// 发起一系列 action
-store.dispatch(addTodo('Learn about Actions'))
-store.dispatch(addTodo('Learn about reducers'))
-store.dispatch(addTodo('Learn about store'))
-store.dispatch(completeTodo(0))
-store.dispatch(completeTodo(1))
-store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
-*/
-/*
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app')
-)
-// 停止监听 state 更新
-unsubscribe();
-*/
 import CountApp from './containers/CountApp'
 import countReducer from './reducers/CountReducer'
 import {compose,applyMiddleware,createStore} from 'redux'
 import thunk from 'redux-thunk'
+import promise from 'redux-promise'
 import logger from 'redux-logger'
 import {Provider} from 'react-redux'
 const store = createStore(
-  countReducer,applyMiddleware(thunk,logger())
+  countReducer,applyMiddleware(thunk,promise,logger())
 )
 // const createStoreDevTools = compose(
 //   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -390,3 +357,7 @@ render(
   </Provider>,
   document.getElementById('count')
 )
+
+fetch('http://localhost:8081').then(function(data){
+  console.log(data)
+})
