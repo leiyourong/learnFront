@@ -8,9 +8,10 @@ var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;//代码压缩
 module.exports = {
     context : path.resolve( __dirname,'../src'),
     entry : {
-        // bundle:['./detail.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],
-        bundle:['./reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],
-        // bundle:['./h5.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],
+        // bundle:['./detail.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //mix
+        // bundle:['./reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
+        // bundle:['./h5.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],      //h5
+        bundle:['./vue.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
         vendor:['jquery']
     },
     output :{
@@ -44,8 +45,9 @@ module.exports = {
     plugins:[
        new HtmlwebpackPlugin({
         title : 'XXXXX',
-        template: path.resolve('./public/tmpl/index.tmpl'),
-        // template: path.resolve('./public/tmpl/h5.tmpl'),
+        // template: path.resolve('./public/tmpl/index.tmpl'),  // mix react
+        // template: path.resolve('./public/tmpl/h5.tmpl'),  // h5
+        template: path.resolve('./public/tmpl/vue.tmpl'),  // vue
         hash: true,
         inject: true,
         filename: 'index.html'
