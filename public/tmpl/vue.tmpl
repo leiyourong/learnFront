@@ -1,0 +1,16 @@
+<html>
+  <meta charset="utf-8">
+  <title>Vue</title>
+  <body>
+    <div id="app">
+      <div>{{ message }}</div>
+      <input v-model="message">
+      <ul>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ul>
+      <button v-on:click="reverseMessage">reverse Message</button>
+    </div>
+  </body>
+</html>
