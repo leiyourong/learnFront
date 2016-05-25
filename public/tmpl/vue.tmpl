@@ -4,13 +4,23 @@
   <body>
     <div id="app">
       <div>{{ message }}</div>
-      <input v-model="message">
+      <input v-model="firNum" lazy> -
+      <input v-model="secNum"> =
+      <span>{{ resNum }}</span>
+      <div v-if="resNum">结果不为0且合法</div>
+      <div v-else>结果为0或不合法</div>
+      <template v-if="+secNum">
+        <ol>
+          <li>我只是测试template v-if</li>
+          <li>我也是</li>
+        </ol>
+      </template>
       <ul>
         <li v-for="todo in todos">
-          {{ todo.text }}
+          {{ $index + 1 }}:{{ todo.text | addChar 'Char' resNum }}
         </li>
       </ul>
-      <button v-on:click="reverseMessage">reverse Message</button>
+      <button @click="reverseMessage($event)">reverse Message</button>
     </div>
   </body>
 </html>

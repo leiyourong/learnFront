@@ -1,17 +1,29 @@
 import Vue from 'vue'
 
-new Vue({
+Vue.filter('addChar', function (value,char,message) {
+  return value+'_'+char+'_'+message
+})
+
+const myVue = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue.js!',
+    message:'Hello VueJs!',
+    firNum: 0,
     todos:[{
-      text:'JS'
+      text:'Js'
     },{
-      text:'JAVA'
-    }]
+      text:'Java'
+    }],
+    greeting:true,
+    secNum:0
+  },
+  computed:{
+    resNum(){
+      return this.firNum-this.secNum
+    }
   },
   methods:{
-    reverseMessage: function(){
+    reverseMessage(event){
       this.message = this.message.split('').reverse().join('')
     }
   }
