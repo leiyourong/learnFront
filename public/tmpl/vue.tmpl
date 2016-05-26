@@ -15,12 +15,19 @@
           <li>我也是</li>
         </ol>
       </template>
+      <input v-model="query">
       <ul>
-        <li v-for="todo in todos">
+        <li v-for="todo in todos | filterBy query " transition="staggered" stagger="100">
           {{ $index + 1 }}:{{ todo.text | addChar 'Char' resNum }}
         </li>
       </ul>
       <button @click="reverseMessage($event)">reverse Message</button>
+      <div v-if="+firNum" transition="expand">hello</div>
+      <div id="example">
+        <tree :name="t">
+          ==={{t}}===
+        </tree>
+      </div>
     </div>
   </body>
 </html>
