@@ -77,6 +77,8 @@ Vue.component('tree',{
   },
   events:{
     'test':function(value){
+      var child = this.$refs.profile
+      console.log(child)
       console.log('2_'+value)
       this.$on('test3',function(value){
         console.log('4_'+value)
@@ -89,7 +91,7 @@ Vue.component('tree',{
       this.$emit('test3',value)
     }
   },
-  template: '<div><slot></slot>A custom component!{{t}}<child1></child1>{{name}}</div>',
+  template: '<div><slot></slot>A custom component!{{t}}<child1  v-ref:profile></child1>{{name}}</div>',
   components: {
     'child1': {
       methods:{
@@ -111,6 +113,16 @@ Vue.component('tree',{
       template: '<div>A Child!{{t}}<input type="button" @click="pass(this.t)" value="传值给父节点" /></div>'
     }
   }
+})
+Vue.component('async-tree', function (resolve, reject) {
+  setTimeout(function () {
+    resolve({
+      props:{
+        'cName':String
+      },
+      template: '<div>我是两秒后才出来的!{{cName}}</div>'
+    })
+  }, 2000)
 })
 // 注册
 // Vue.component('tree', {
