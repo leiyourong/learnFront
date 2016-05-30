@@ -62,6 +62,7 @@ Vue.transition('expand', {
 //   template: '<div>A Child!</div>'
 // })
 Vue.component('tree',{
+  name: 'tree',
   data: function(){
     return {
       t: this.name
@@ -80,7 +81,7 @@ Vue.component('tree',{
       var child = this.$refs.profile
       console.log(child)
       console.log('2_'+value)
-      this.$on('test3',function(value){
+      this.$off('test3').$on('test3',function(value){
         console.log('4_'+value)
         this.$broadcast('test4',value)
       })
@@ -132,4 +133,24 @@ Vue.component('async-tree', function (resolve, reject) {
 // 创建根实例
 new Vue({
   el: '#example'
+})
+
+Vue.directive('my-test',{
+  params:['param'],
+  bind: function () {
+    console.log('bind')
+  },
+  update: function (newValue, oldValue) {
+    console.log(this.params.param)
+  },
+  unbind: function () {
+    console.log('unbind')
+  }
+})
+
+new Vue({
+  el: '#test',
+  data: {
+    msg: 'hello!'
+  }
 })

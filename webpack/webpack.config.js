@@ -11,7 +11,8 @@ module.exports = {
         // bundle:['./detail.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //mix
         // bundle:['./reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
         // bundle:['./h5.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],      //h5
-        bundle:['./vue.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
+        //bundle:['./vue.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
+        bundle:['./vue/start.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader
         vendor:['jquery']
     },
     output :{
@@ -36,7 +37,8 @@ module.exports = {
             },
             { test: /\.json$/, loader: 'json'},
             { test: /\.(png|jpg)$/,loader:'url-loader?limit=8192'},
-            { test: /\.handlebars$/, loader: 'handlebars-loader' }
+            { test: /\.handlebars$/, loader: 'handlebars-loader' },
+            { test: /\.vue$/, loader: 'vue-loader' }
         ]
     },
     resolve: {
@@ -47,7 +49,8 @@ module.exports = {
         title : 'XXXXX',
         // template: path.resolve('./public/tmpl/index.tmpl'),  // mix react
         // template: path.resolve('./public/tmpl/h5.tmpl'),  // h5
-        template: path.resolve('./public/tmpl/vue.tmpl'),  // vue
+        // template: path.resolve('./public/tmpl/vue.tmpl'),  // vue
+        template: path.resolve('./public/tmpl/vue2.tmpl'),  // vue
         hash: true,
         inject: true,
         filename: 'index.html'
