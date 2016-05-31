@@ -5,6 +5,7 @@
     type="text"
     @blur="_blur(this)"
     :placeHolder="placeHolder"
+    :value='xxx'
     />
 </template>
 
