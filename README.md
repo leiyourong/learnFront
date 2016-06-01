@@ -1,35 +1,35 @@
 ﻿#should be
-npm > v3.6.0
-node > v5.7.1
+npm > v3.6.0 <br>
+node > v5.7.1 <br>
 
 #run
-npm install -g webpack
-npm install
-npm start
+npm install -g webpack <br>
+npm install <br>
+npm start <br>
 
-koa:
-  src/koaTest.js
-express:
-  src/expressTest.js
-es5+es6:(handlebars)
-  src/detail.js
-h5:
-  src/h5.js
-react+redux:
-  src/reactTest.js
-  src/actions/*
-  src/components/*
-  src/containers/*
-  src/reducer/*
-vue+vuex:
-  src/vue.js
-  src/vue/*
-  src/vuex/*
-test(mocha+chai+karma+sinon):
-  test/*
-  karma.conf.js
+##koa:<br>
+  src/koaTest.js<br>
+##express:<br>
+  src/expressTest.js<br>
+##es5+es6:(handlebars)<br>
+  src/detail.js<br>
+##h5:<br>
+  src/h5.js<br>
+##react+redux:<br>
+  src/reactTest.js<br>
+  src/actions/* <br>
+  src/components/* <br>
+  src/containers/* <br>
+  src/reducer/* <br>
+##vue+vuex: <br>
+  src/vue.js <br>
+  src/vue/* <br>
+  src/vuex/* <br>
+##test(mocha+chai+karma+sinon): <br>
+  test/* <br>
+  karma.conf.js <br>
 
 #run test
-npm install -g karma
-npm install
-npm test
+npm install -g karma <br>
+npm install <br>
+npm test <br>
