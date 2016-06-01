@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
     <r-label  value="用户名:" ></r-label>
     <r-input id="username" place-holder="请输入用户名"></r-input><br>
     <r-label  value="密码:"></r-label>
@@ -7,16 +8,22 @@
     <div v-for="userInfo in userInfos">
       账号为:{{userInfo.username}}  密码为:{{userInfo.password}}
     </div>
+    <a v-link="{ path: '/about' }">Go to about</a>
+    <a v-link="{ path: 'child', append: true }">child</a>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import actions from '../vuex/actions'
 const login = actions.login
+import store from '../vuex/modules'
 import RLabel from './r-label.vue'
 import RInput from './r-input.vue'
 import RButton from './r-button.vue'
 export default {
+  store,
   data:function(){
     return {
       defValue:'defValue',
@@ -53,6 +60,16 @@ export default {
     getters: {
       userInfos:state => state.userInfo,
     }
+  },
+  route: {
+    activate: function (transition) {
+      console.log('hook-example activated!')
+      transition.next()
+    },
+    deactivate: function (transition) {
+      console.log('hook-example deactivated!')
+      transition.next()
+    }
   }
 }
 </script>
@@ -68,7 +85,7 @@ export default {
   margin:20px 0 0 0;
 }
 .r-input{
-  width:75%;
+  width:74%;
   margin:20px 0 0 0;
 }
 </style>

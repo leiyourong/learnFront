@@ -3,6 +3,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
   <title>Vue</title>
   <body>
-    <app></app>
+    <div id="app">
+    <!-- 路由外链 -->
+      <p>
+        <!-- use v-link directive for navigation. -->
+        <a v-link="{ path: '/' }">Go to home</a>
+        <a v-link="{ path: '/about' }">Go to about</a>
+        <a v-link="{ path: '/login' }">Go to login</a>
+      </p>
+      <router-view></router-view>
+    </div>
   </body>
 </html>
