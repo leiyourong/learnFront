@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <r-label  value="用户名:" ></r-label>
-    <r-input id="username" place-holder="请输入用户名"></r-input><br>
+    <r-input id="username" place-holder="请输入用户名" ref="username"></r-input><br>
     <r-label  value="密码:"></r-label>
     <r-input id="password" place-holder="请输入密码"></r-input><br>
     <r-button value="确定"></r-button>
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import actions from '../vuex/actions'
 const login = actions.login
+import Vue from 'vue'
 import store from '../vuex/modules'
 import RLabel from './r-label.vue'
 import RInput from './r-input.vue'
@@ -41,6 +41,7 @@ export default {
       }
     },
     _buttonClick(){
+      console.log(this)
       const loginInfo = {
         userName:this.userName,
         passWord:this.passWord
@@ -63,12 +64,28 @@ export default {
   },
   route: {
     activate: function (transition) {
-      console.log('hook-example activated!')
+      console.log('激活app.vue啦!---activate')
       transition.next()
     },
     deactivate: function (transition) {
-      console.log('hook-example deactivated!')
+      console.log('离开app.vue了!---deactivate')
       transition.next()
+    },
+    canActivate: function (transition) {
+      console.log('判断能不能激活先---canActivate!')
+      transition.next()
+    },
+    canDeactivate: function (transition) {
+      console.log('判断能不能离开---canDeactivate!')
+      transition.next()
+    },
+    data: function (transition) {
+      console.log('加载数据---data!')
+      transition.next()
+    },
+    canReuse: function (transition) {
+      console.log('判断能否重用---canReuse!')
+      //transition.next()
     }
   }
 }

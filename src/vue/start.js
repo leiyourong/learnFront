@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './app.vue'
 import Router from 'vue-router'
 /* eslint-disable no-new */
+if (module.hot) {
+  module.hot.accept()
+}
+
 Vue.use(Router)
 var Bpp = Vue.extend({})
 const router = new Router({
@@ -10,7 +14,18 @@ const router = new Router({
   linkActiveClass: 'link-active',
   transitionOnLoad: false
 })
-
+router.on('/error', {
+  component: {
+    template: '<div>error</div>'
+  }
+})
+router.beforeEach(function (transition) {
+  console.log('所有路由切换我都会被调用---beforeEach')
+  transition.next()
+})
+router.afterEach(function (transition) {
+  console.log('快要进入激活状态啦---afterEach')
+})
 router.map({
   '/': {
     component: {

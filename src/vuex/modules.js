@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 import {LOGIN} from './types'
+import createLogger from 'vuex/logger'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ const mutations = {
 }
 
 export default new Vuex.Store({
+  middlewares: [createLogger()],
   state,
   mutations
 })
