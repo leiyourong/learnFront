@@ -5,6 +5,13 @@ var webpackDevMiddleware = require('koa-webpack-dev-middleware');
 var webpackHotMiddleware = require('koa-webpack-hot-middleware');
 var staticRes = require('koa-static');
 var path = require('path');
+var Router = require('koa-router');
+var myRouter = new Router();
+
+myRouter.get('/error',function *(){
+  this.body = 'error'
+})
+app.use(myRouter.routes());
 
 // add for mongodb
 // var mongoose = require('mongoose');
@@ -16,6 +23,7 @@ var path = require('path');
 
 var config = require('./webpack.config');
 var compiler = webpack(config);
+
 
 // app.use(convert(historyApiFallback({
 //   verbose: false

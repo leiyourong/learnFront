@@ -342,8 +342,9 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import logger from 'redux-logger'
 import {Provider} from 'react-redux'
+import doubi from './middleware/doubi'
 const store = createStore(
-  countReducer,applyMiddleware(thunk,promise,logger())
+  countReducer,applyMiddleware(thunk,promise,doubi,logger())
 )
 // const createStoreDevTools = compose(
 //   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -357,7 +358,3 @@ render(
   </Provider>,
   document.getElementById('count')
 )
-
-fetch('http://localhost:8081').then(function(data){
-  console.log(data)
-})

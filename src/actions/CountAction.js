@@ -18,8 +18,10 @@ export const subNum = createAction('SUB_NUM', payload => {
 }, ({meta}) => (meta || {}))
 export const clear = createAction('CLEAR')
 export const info = createAction('INFO', () => {
-  fetch('http://localhost:8081').then(function(data){
-    return data
+  return fetch('http://localhost:8081').then(function(data){
+    return {
+      'age':'18 every year'
+    }
   })
   // return {
   //   url: 'http://localhost:8081',
@@ -36,7 +38,4 @@ export function addOne(){
   return (dispatch, getState) => {
     dispatch(addNum(1))
   }
-}
-export function getServerInfo(){
-
 }
