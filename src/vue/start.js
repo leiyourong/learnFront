@@ -14,17 +14,18 @@ const router = new Router({
   linkActiveClass: 'link-active',
   transitionOnLoad: false
 })
-router.on('/error', {
-  component: {
-    template: '<div>error</div>'
-  }
-})
 router.beforeEach(function (transition) {
   console.log('所有路由切换我都会被调用---beforeEach')
   transition.next()
 })
 router.afterEach(function (transition) {
   console.log('快要进入激活状态啦---afterEach')
+  // router.go('/error')
+})
+router.on('/', {
+  component: {
+    template: '<div>on</div>'
+  }
 })
 router.map({
   '/': {
@@ -34,7 +35,7 @@ router.map({
   },
   '/about': {
     component: {
-      template: '<p>about</p><a v-link="{name:\'child\', path: \'/about/child\' }">child</a><router-view></router-view>'
+      template: '<p>about</p>'
     },
     subRoutes: {
       '/child': {
@@ -57,7 +58,11 @@ router.map({
         }
       },
     }
+  },
+  '/error': {
+    component: {
+      template: '<div>error</div>'
+    }
   }
 })
-
 router.start(Bpp, '#app')

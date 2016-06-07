@@ -10,6 +10,7 @@
     </div>
     <a v-link="{ path: '/about' }">Go to about</a>
     <a v-link="{ path: 'child', append: true }">child</a>
+    <a href="javascript:;" @click="_error">error</a>
     <router-view></router-view>
   </div>
 </template>
@@ -31,6 +32,11 @@ export default {
       passWord:''
     }
   },
+  methods:{
+    _error(){
+      this.$router.go('/error')
+    }
+  },
   events:{
     _blur(el){
       const value = el.$el.value
@@ -41,7 +47,6 @@ export default {
       }
     },
     _buttonClick(){
-      console.log(this)
       const loginInfo = {
         userName:this.userName,
         passWord:this.passWord
