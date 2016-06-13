@@ -1,10 +1,26 @@
 <template>
   <div class="container">
-    <r-label  value="用户名:" ></r-label>
-    <r-input id="username" place-holder="请输入用户名" ref="username"></r-input><br>
-    <r-label  value="密码:"></r-label>
-    <r-input id="password" place-holder="请输入密码"></r-input><br>
-    <r-button value="确定"></r-button>
+    <template v-if="!isLogin">
+      <r-label value="用户名:" ></r-label>
+      <template v-if="!registerSuc">
+        <r-input id="username" place-holder="请输入用户名" ref="username"></r-input><br>
+      </template>
+      <template v-if="registerSuc">
+        <r-label :value="userInfos[userInfos.length-1].username" ></r-label><br>
+      </template>
+      <r-label  value="密码:"></r-label>
+      <template v-if="!registerSuc">
+        <r-input id="password" place-holder="请输入密码"></r-input><br>
+      </template>
+      <template v-if="registerSuc">
+        <r-label  :value="userInfos[userInfos.length-1].password" ></r-label><br>
+      </template>
+    </template>
+    <template v-if="isLogin">
+      <r-label value="HelloVue"></r-label><br>
+    </template>
+    <r-button id="bt1" value="登录"></r-button>
+    <r-button id="bt2" value="注册"></r-button>
     <div v-for="userInfo in userInfos">
       账号为:{{userInfo.username}}  密码为:{{userInfo.password}}
     </div>
@@ -18,6 +34,7 @@
 <script>
 import actions from '../vuex/actions'
 const login = actions.login
+const register = actions.register
 import Vue from 'vue'
 import store from '../vuex/modules'
 import RLabel from './r-label.vue'
@@ -46,12 +63,18 @@ export default {
         this.passWord = value
       }
     },
-    _buttonClick(){
+    _buttonClick(btName){
       const loginInfo = {
         userName:this.userName,
         passWord:this.passWord
       }
-      this.login(loginInfo)
+      if(btName === '登录'){
+        this.login(loginInfo)
+      }else if(btName === '注册'){
+        this.register(loginInfo)
+      }
+      this.userName = ""
+      this.passWord = ""
     }
   },
   components: {
@@ -61,10 +84,13 @@ export default {
   },
   vuex: {
     actions: {
-      login
+      login,
+      register
     },
     getters: {
       userInfos:state => state.userInfo,
+      isLogin:state => state.isLogin,
+      registerSuc:state => state.registerSuc
     }
   },
   route: {
@@ -101,6 +127,10 @@ export default {
   font-size:25px;
   height:40px;
 }
+#bt1,#bt2{
+  width:48%;
+  display: inline;
+}
 .r-label{
   display:inline-block;
   width:21%;
@@ -109,5 +139,10 @@ export default {
 .r-input{
   width:74%;
   margin:20px 0 0 0;
+}
+#hellov{
+  font-size:50px;
+  text-align: center;
+  width:100%;
 }
 </style>

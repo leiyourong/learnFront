@@ -1,8 +1,10 @@
-import { LOGIN } from './types'
+import { REGISTER,LOGIN } from './types'
 
 export default {
   login ({ dispatch },payload) {
-    console.log('action')
-    dispatch(LOGIN, payload)
+    dispatch( LOGIN, payload)
+  },
+  register ({ dispatch },payload) {
+    dispatch( REGISTER, payload)
   }
 }
