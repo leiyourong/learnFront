@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import '../public/css/vue.css'
+import '../../public/css/vue.css'
 Vue.filter('addChar', function (value,char,message) {
   return value+'_'+char+'_'+message
 })

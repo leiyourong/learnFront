@@ -16,6 +16,22 @@ app.use(myRouter.routes());
 // add for mongodb
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost:27017/test');
+// var testSchema = mongoose.Schema({
+//   name: String
+// })
+// testSchema.methods.speak = function () {
+//   console.log('name:'+this.name);
+// }
+// var TestCol = mongoose.model('testcol',testSchema)
+// var test = new TestCol({
+//   name: 'lei'
+// })
+// test.speak()
+// test.save(function(err, data) {
+//   if (err) return console.error(err)
+//   console.log(data);
+// })
+
 
 // add for h5.js test
 // var convert = require('koa-convert');

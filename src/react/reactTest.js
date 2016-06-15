@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Router,Route,hashHistory,Link,Redirect,IndexRoute,IndexLink,browserHistory,Lifecycle} from 'react-router';
 import $ from 'jquery';
-require('../public/css/reactCss.css')
+require('../../public/css/reactCss.css')
 
 const reactNode = document.getElementById('react');
 const li = React.createElement('li', null, 'Text Content');

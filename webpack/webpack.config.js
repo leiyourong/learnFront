@@ -9,9 +9,9 @@ module.exports = {
     context : path.resolve( __dirname,'../src'),
     entry : {
         // bundle:['./detail.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //mix
-        // bundle:['./reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
+        // bundle:['./react/reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
         // bundle:['./h5.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],      //h5
-        // bundle:['./vue.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
+        // bundle:['./vue/vue.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
         bundle:['./vue/start.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader
         vendor:['jquery']
     },

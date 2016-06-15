@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import actions from '../vuex/actions'
+import actions from './vuex/actions'
 const login = actions.login
 const register = actions.register
 import Vue from 'vue'
-import store from '../vuex/modules'
+import store from './vuex/modules'
 import RLabel from './r-label.vue'
 import RInput from './r-input.vue'
 import RButton from './r-button.vue'
