@@ -1,0 +1,7 @@
+$gray: #f0f0f0;
+
+@define-mixin r_title $size{
+  text-align: left;
+  font-weight: bold;
+  font-size: $size;
+}

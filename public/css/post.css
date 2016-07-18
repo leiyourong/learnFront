@@ -1,0 +1,34 @@
+@import "var.css";
+
+.one {
+    @mixin r_title 20px;
+    a {
+      text-decoration: none;
+      &:hover {
+        background: $gray;
+      }
+    }
+}
+
+.box {
+  width: 600px;
+  height: 100px;
+  display: flex;
+  flex-flow: wrap;
+  div {
+    margin: 1px 0;
+  }
+  .fir {
+    flex: 3;
+    min-width: 300px;
+    background: rgba(255, 0, 0, 0.5);
+  }
+  .sec {
+    flex: 2;
+    background: rgba(0, 255, 0, 0.5);
+  }
+  .thr {
+    flex: 1;
+    background: rgba(0, 0, 255, 0.5);
+  }
+}
