@@ -41,9 +41,6 @@ var config = require('./webpack.config');
 var compiler = webpack(config);
 
 
-// app.use(convert(historyApiFallback({
-//   verbose: false
-// })))
 // app.use(staticRes(path.resolve(__dirname,'../public')));
 
 app.use(webpackDevMiddleware(compiler, {
@@ -57,4 +54,6 @@ app.use(webpackHotMiddleware(compiler, {
   })
 );
 
-app.listen(8081);
+app.listen(8081, () => {
+  console.log('Server is now running at : 8081.')
+});

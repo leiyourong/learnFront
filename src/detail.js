@@ -5,7 +5,6 @@ var mycss = require("../public/css/post")
 var handlebars = require('handlebars/runtime')
 
 handlebars.registerHelper('print',function(item1,item2,options){
-  console.log(options.fn(this))
   return '<div>'+item1+'_'+item2+'</div>'
 })
 
