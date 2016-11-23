@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import App from './app.vue'
 import Router from 'vue-router'
 /* eslint-disable no-new */
 if (module.hot) {
@@ -7,7 +6,7 @@ if (module.hot) {
 }
 
 Vue.use(Router)
-var Bpp = Vue.extend({})
+var App = Vue.extend({})
 const router = new Router({
   hashbang:true,
   history:false,
@@ -65,4 +64,4 @@ router.map({
     }
   }
 })
-router.start(Bpp, '#app')
+router.start(App, '#app')
