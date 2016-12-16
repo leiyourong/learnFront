@@ -1,6 +1,7 @@
 'use strict';
 
 import p from '../my_module/log';
+import thunkTest from './thunkTest';
 var mycss = require("../public/css/post")
 var handlebars = require('handlebars/runtime')
 
