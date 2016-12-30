@@ -1,16 +1,16 @@
 var fetch = require('node-fetch')
-// var co = require('co')
-
-function* gen(url){
-  const data = yield fetch(url)
-  console.log('firstYield: ' + data.url)
-  const res = yield fetch(data.url)
-  console.log('secondYield: ' + res.url)
-  return res.url
+var co = require('co')
+url = 'https://leiyourong.github.io'
+function* gen(){
+  const data = yield [fetch(url), fetch(url)]
+  console.log(data)
+  const res = yield {'xx': fetch(url), 'yy': fetch(url)}
+  console.log(res)
+  return res
 }
 
-var x = gen('https://leiyourong.github.io')
-
+co(gen)
+// console.log(x.next())
 
 
 // function* gen(url){
