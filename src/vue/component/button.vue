@@ -2,7 +2,6 @@
   <input
     :class="['r-button']"
     type="button"
-    @click="_buttonClick(this.value)"
     :value="value"
     />
 </template>
@@ -14,11 +13,6 @@ export default {
     value:{
       type: String,
       default: ""
-    }
-  },
-  methods:{
-    _buttonClick(buttonName){
-      this.$dispatch("_buttonClick",buttonName)
     }
   }
 }

@@ -4,7 +4,7 @@
     :class="['r-input']"
     type="text"
     @blur="_blur(this)"
-    :placeHolder="placeHolder"
+    :place-holder="placeHolder"
     :value='xxx'
     :ref="ref"
     />
@@ -25,7 +25,7 @@ export default {
   },
   methods:{
     _blur (input) {
-      this.$dispatch("_blur",input)
+      this.$emit("_blur",input)
     }
   }
 }
@@ -33,8 +33,8 @@ export default {
 
 <style>
 .r-input{
-border:1px #000 solid;
-padding:3px;
-font-size:20px;
+  border:1px #000 solid;
+  padding:3px;
+  font-size:20px;
 }
 </style>

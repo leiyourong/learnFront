@@ -7,9 +7,9 @@
     <!-- 路由外链 -->
       <p>
         <!-- use v-link directive for navigation. -->
-        <a v-link="{ path: '/' }">Go to home</a>
-        <a v-link="{ path: '/about' }">Go to about</a>
-        <a v-link="{ path: '/login' }">Go to login</a>
+        <router-link :to="{ path: '/' }">Go to Home</router-link>
+        <router-link :to="{ path: '/about/1' }">Go to about1</router-link>
+        <router-link :to="{ path: '/login' }">Go to login</router-link>
       </p>
       <router-view></router-view>
     </div>

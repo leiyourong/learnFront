@@ -2,7 +2,7 @@
   <span
     :class="['r-label']"
     v-if="value">
-    {{value}}
+    {{ value }}
   </span>
 </template>
 
@@ -16,8 +16,8 @@ export default {
 </script>
 
 <style>
-.r-label{
-padding:3px;
-font-size:20px;
+.r-label {
+  padding:3px;
+  font-size:20px;
 }
 </style>
