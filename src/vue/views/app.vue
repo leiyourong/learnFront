@@ -3,30 +3,37 @@
     <template v-if="!isLogin">
       <r-label value="用户名:"></r-label>
       <template v-if="!registerSuc">
-        <r-input id="username" place-holder="请输入用户名" ref="username"></r-input><br>
+        <r-input placeholder="请输入用户名" :value="username" @input="username = $event"></r-input><br>
       </template>
       <template v-if="registerSuc">
-        <r-label :value="userInfos[userInfos.length-1].username" ></r-label><br>
+        <span>xxxxx</span>
+        <!-- <r-label :value="userInfos[userInfos.length-1].username"></r-label><br> -->
       </template>
+
       <r-label  value="密码:"></r-label>
       <template v-if="!registerSuc">
-        <r-input id="password" place-holder="请输入密码"></r-input><br>
+        <r-input id="xpassword" placeholder="请输入密码"  :value="password" @input="password = $event"></r-input><br>
       </template>
       <template v-if="registerSuc">
-        <r-label  :value="userInfos[userInfos.length-1].password" ></r-label><br>
+        <r-label  :value="userInfos[userInfos.length-1].password"></r-label><br>
       </template>
     </template>
+
     <template v-if="isLogin">
       <r-label value="HelloVue"></r-label><br>
     </template>
+    {{ registerSuc }}
     <r-button id="bt1" value="登录" @click.native="cLogin"></r-button>
     <r-button id="bt2" value="注册" @click.native="cRegister"></r-button>
+
     <div v-for="userInfo in userInfos">
       账号为:{{userInfo.username}}  密码为:{{userInfo.password}}
     </div>
+
     <router-link :to="{ path: '/about/2' }">Go to about2</router-link>
     <router-link :to="{ path: 'child' }">child</router-link>
     <a href="javascript:;" @click="_error">error</a>
+
     <router-view></router-view>
   </div>
 </template>
@@ -35,62 +42,51 @@
 import RLabel from '../component/label.vue'
 import RInput from '../component/input.vue'
 import RButton from '../component/button.vue'
-import { mapActions } from 'vuex'
+
+import { mapActions, mapGetters } from 'vuex'
 import { REGISTER, LOGIN } from '../vuex/types'
 
 export default {
   data: function () {
     return {
-      defValue:'defValue',
-      userName:'',
-      passWord:''
+      username: '',
+      password: ''
     }
   },
   methods: {
     _error () {
       this.$router.push('/error')
     },
-    _blur (el) {
-      const value = el.$el.value
-      if (el.$el.id === 'username') {
-        this.userName = value
-      } else if(el.$el.id === 'password') {
-        this.passWord = value
-      }
-    },
     cLogin () {
       const loginInfo = {
-        userName: this.userName,
-        passWord: this.passWord
+        username: this.username,
+        password: this.password
       }
       this.login(loginInfo)
-      this.userName = ""
-      this.passWord = ""
     },
     cRegister () {
-      debugger
       const loginInfo = {
-        userName: this.userName,
-        passWord: this.passWord
+        username: this.username,
+        password: this.password
       }
       this.register(loginInfo)
-      this.userName = ""
-      this.passWord = ""
     },
     ...mapActions({
-      login: 'LOGIN',
-      register: 'REGISTER'
+      login: LOGIN,
+      register: REGISTER
     })
+  },
+  computed: {
+    ...mapGetters([
+      'userInfos',
+      'isLogin',
+      'registerSuc'
+    ])
   },
   components: {
     RLabel,
     RInput,
     RButton
-  },
-  mapGetters: {
-    userInfos: state => state.userInfo,
-    isLogin: state => state.isLogin,
-    registerSuc: state => state.registerSuc
   },
   route: {
     beforeRouteEnter: function (transition) {

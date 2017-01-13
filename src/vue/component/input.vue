@@ -1,31 +1,35 @@
 <template>
   <input
-    :id="id"
-    :class="['r-input']"
-    type="text"
-    @blur="_blur(this)"
-    :place-holder="placeHolder"
-    :value='xxx'
-    :ref="ref"
+    type = "text"
+    :id = "id"
+    :class = "['r-input']"
+    :placeholder = "placeholder"
+    :value = "value"
+    @input = "changeValue"
     />
 </template>
 
 
 <script>
 export default {
-  props:{
-    placeHolder:{
+  props: {
+    placeholder:{
       type: String,
       default: ""
     },
-    id:{
+    id: {
+      type: String,
+      default: "",
+      required: true
+    },
+    value: {
       type: String,
       default: ""
     }
   },
-  methods:{
-    _blur (input) {
-      this.$emit("_blur",input)
+  methods: {
+    changeValue: function(e){
+      this.$emit('input', e.target.value)
     }
   }
 }
