@@ -1,9 +1,4 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
 import { REGISTER, LOGIN } from './types'
-import createLogger from 'vuex/dist/logger'
-import actions from './actions'
-Vue.use(Vuex)
 
 const state = {
   userInfo: [],
@@ -44,10 +39,8 @@ const getters = {
   registerSuc: state => state.registerSuc
 }
 
-export default new Vuex.Store({
-  plugins: [createLogger()],
+export default {
   state,
   getters,
-  mutations,
-  actions
-})
+  mutations
+}

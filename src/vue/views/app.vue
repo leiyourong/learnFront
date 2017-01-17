@@ -6,8 +6,7 @@
         <r-input placeholder="请输入用户名" :value="username" @input="username = $event"></r-input><br>
       </template>
       <template v-if="registerSuc">
-        <span>xxxxx</span>
-        <!-- <r-label :value="userInfos[userInfos.length-1].username"></r-label><br> -->
+        <r-label :value="userInfos[userInfos.length-1].username"></r-label><br>
       </template>
 
       <r-label  value="密码:"></r-label>
@@ -22,7 +21,7 @@
     <template v-if="isLogin">
       <r-label value="HelloVue"></r-label><br>
     </template>
-    {{ registerSuc }}
+
     <r-button id="bt1" value="登录" @click.native="cLogin"></r-button>
     <r-button id="bt2" value="注册" @click.native="cRegister"></r-button>
 
@@ -63,6 +62,8 @@ export default {
         password: this.password
       }
       this.login(loginInfo)
+      this.username = ''
+      this.password = ''
     },
     cRegister () {
       const loginInfo = {
@@ -70,6 +71,8 @@ export default {
         password: this.password
       }
       this.register(loginInfo)
+      this.username = ''
+      this.password = ''
     },
     ...mapActions({
       login: LOGIN,
