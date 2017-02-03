@@ -13,6 +13,7 @@
     "async": "^2.1.4",
     "babel-core": "^6.7.2",
     "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "cheerio": "^0.22.0",
     "handlebars": "^4.0.5",
     "node-fetch": "^1.6.3"
   },
