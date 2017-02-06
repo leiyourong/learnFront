@@ -82,6 +82,13 @@ function callback(html, url) {
       urlArray.push(href)
       allUrlArray.push(href)
     }
+    if (/^\//.test(href)) {
+      href = url + href
+      if (allUrlArray.indexOf(href) === -1) {
+        urlArray.push(href)
+        allUrlArray.push(href)
+      }
+    }
   })
   $('img').each(function(index, element) {
     var src = $(element).attr('src')
