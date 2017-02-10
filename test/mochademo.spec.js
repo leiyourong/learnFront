@@ -11,6 +11,8 @@ describe('add', function(){
   it('1 加 2 应该等于 3', function() {
     expect(add(1, 2)).to.equal(3)
   })
+
+  
   it('1 加 "2" 应该返回error', function() {
     expect(add(1, '2')).to.equal('error')
   })
