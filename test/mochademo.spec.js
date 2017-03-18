@@ -12,18 +12,16 @@ describe('add', function(){
     expect(add(1, 2)).to.equal(3)
   })
 
-  
+
   it('1 加 "2" 应该返回error', function() {
     expect(add(1, '2')).to.equal('error')
   })
 })
 
-
-
 describe('getHtml/multiGetHtml', function(){
   var httpUrl = 'http://www.qq.com'
   var httpsUrl = 'https://www.tieba.com'
-  var urls = ['http://www.qq.com', 'http://www.qq.com', 'http://www.qq.com']
+  var urls = ['http://www.qq.com', 'https://www.qq.com']
   var getHtml = demo.getHtml
   var http = require('http')
   var https = require('https')
@@ -38,7 +36,10 @@ describe('getHtml/multiGetHtml', function(){
     expect(getHtml(httpsUrl)).to.equal(3)
   })
   it('multiGetHtml', function() {
+    var expectedRes = [2, 3]
     var res = demo.multiGetHtml(urls)
-    expect(res).to.equal(3)
+    expect(res.length).to.equal(2)
+    expect(res[0]).to.equal(2)
+    expect(res[1]).to.equal(3)
   })
 })

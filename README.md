@@ -31,5 +31,6 @@ npm start <br>
 
 #run test
 npm install -g karma <br>
+npm install -g karma-cli <br>
 npm install <br>
 npm test <br>

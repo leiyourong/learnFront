@@ -19,7 +19,7 @@ module.exports = function(config) {
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
       './node_modules/sinon/pkg/sinon.js',
       {
-        pattern: './test/**/mochademo.spec.js',
+        pattern: './test/**/*.js',
         watched: false,
         served: true,
         included: true
