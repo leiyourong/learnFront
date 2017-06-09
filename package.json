@@ -7,7 +7,7 @@
     "build": "babel js -d comp",
     "start": "node webpack/starter.js"
   },
-  "author": "leiyourong111",
+  "author": "leiyourong222",
   "license": "ISC",
   "dependencies": {
     "async": "^2.1.4",
