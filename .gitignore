@@ -23,4 +23,5 @@ sea-modules
 coverage
 Thumbs.db
 tmp
+out
 ~*
