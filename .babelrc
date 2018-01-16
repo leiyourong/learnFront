@@ -6,6 +6,7 @@
     ],
     "plugins": [
       "transform-async-to-generator",
+      "babel-plugin-transform-decorators-legacy",
       "add-module-exports"
     ]
 }

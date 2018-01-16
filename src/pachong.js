@@ -1,20 +1,55 @@
-'use strict'
+/**
+ * @author leiyourong <460951178@qq.com>
+ * @description 一个小爬虫
+ */
+
 const http = require('http')
 const https = require('https')
 const fs = require('fs')
+/**
+ * @description node版的jQuery
+ */
 const cheerio = require('cheerio')
 const readline = require('readline')
 const path = require('path')
+
+/**
+ * @description 当前页的url数组缓存
+ * @type {Array}
+ */
 let urlArray = []
+
+/**
+ * @description 全部页的url数组缓存
+ * @type {Array}
+ */
 let allUrlArray = []
+
+/**
+ * @description 目标文件路径
+ * @type {String}
+ */
 let targetFile = ''
+
+/**
+ * @description 搜索次数
+ * @type {Number}
+ * @class Object pachong
+ */
 let num = 0
 
+/**
+ * @memberof num
+ */
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 })
 
+/**
+ * @description 获取目标网页的html
+ * @param {string} url 请求的路径
+ */
 function getHtml(url) {
   var protocol
   if (/^https/.test(url)) {
@@ -33,12 +68,21 @@ function getHtml(url) {
   })
 }
 
+/**
+ * @description 获取目标地址的文件名
+ * @param {string} address 请求的路径
+ * @returns {string}
+ */
 function parseUrlForFileName(address) {
   var filename = path.basename(address)
   return filename
 }
 
-function getImg(url, pageUrl) {
+/**
+ * @description 拉取目标地址图片
+ * @param {string} url 目标地址
+ */
+function getImg(url) {
   var protocol
   if (/^https/.test(url)) {
     protocol = https
@@ -73,7 +117,11 @@ function getImg(url, pageUrl) {
   })
 }
 
-
+/**
+ * @description 回调函数，为了抓取url
+ * @param {string} url 当前地址
+ * @param {string} html 网页内容
+ */
 function callback(html, url) {
   var $ = cheerio.load(html)
   $('a').each(function(index, element) {
@@ -105,6 +153,9 @@ function callback(html, url) {
 
 }
 
+/**
+ * @description 创建文件
+ */
 function getFile() {
   rl.question('请输入目标文件夹全路径：', function(answer) {
     if (!fs.existsSync(answer)) {
@@ -134,6 +185,9 @@ function getFile() {
 }
 getFile()
 
+/**
+ * @description 删除目标
+ */
 function deleteFile(path) {
   var files = fs.readdirSync(path)
   files.forEach(function(file) {
@@ -147,6 +201,9 @@ function deleteFile(path) {
   })
 }
 
+/**
+ * @description 获取网站内容
+ */
 function getSite() {
   rl.question('请输入目标网址（http）：', function(answer) {
     if (!/^http/.test(answer)) {
