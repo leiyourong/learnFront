@@ -5,7 +5,7 @@ export default class baseModel {
     this.className = name || 'baseModel'
   }
 
-  @log
+  // @log
   getName () {
     return this.className
   }

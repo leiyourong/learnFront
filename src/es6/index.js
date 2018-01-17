@@ -12,10 +12,12 @@ calcu.diff([1, 2, 4, 1, 2])
 
 var proxy = new Proxy(calcu, {
   get: function(target, property, receiver) {
-    console.log(target)
-    console.log(property)
     return target[property] || '-'
   }
 })
-
 proxy.xxx
+
+calcu.addOne(1)
+setTimeout(() => {
+  calcu.addOne(1)
+}, 900)
