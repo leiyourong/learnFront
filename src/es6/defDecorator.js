@@ -23,3 +23,10 @@ export function interval (ms) {
     return descriptor
   }
 }
+
+export function author(authorName) {
+  return function (target, name, descriptor) {
+    target.author = authorName
+    target.prototype.author = authorName
+  }
+}

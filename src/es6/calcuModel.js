@@ -1,6 +1,7 @@
 import baseModel from './baseModel'
-import { log, interval } from './defDecorator'
+import { log, interval, author } from './defDecorator'
 
+@author('lyr')
 export default class calcuModel extends baseModel {
   // @log
   add (x, y) {
@@ -17,7 +18,7 @@ export default class calcuModel extends baseModel {
 
 
   @log
-  @interval(10000)
+  @interval(1000)
   addOne (num) {
     return num + 1
   }

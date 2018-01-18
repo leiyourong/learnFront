@@ -21,3 +21,6 @@ calcu.addOne(1)
 setTimeout(() => {
   calcu.addOne(1)
 }, 900)
+
+calcu.author // 'lyr'
+CalcuModel.author // 'lyr'
