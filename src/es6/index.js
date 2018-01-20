@@ -1,4 +1,5 @@
 import CalcuModel from './calcuModel'
+import NetModel from './netModel'
 
 const calcu = new CalcuModel('TestCalcu')
 
@@ -12,7 +13,11 @@ calcu.diff([1, 2, 4, 1, 2])
 
 var proxy = new Proxy(calcu, {
   get: function(target, property, receiver) {
-    return target[property] || '-'
+    if (property === 'className') {
+      // Reflect 是为了替代 Object，解决 Object 不存在方式时报错的问题
+      return Reflect.get(target, property, receiver)
+    }
+    return 'Unknown'
   }
 })
 proxy.xxx
@@ -24,3 +29,8 @@ setTimeout(() => {
 
 calcu.author // 'lyr'
 CalcuModel.author // 'lyr'
+
+const net = new NetModel()
+net.getUrl('http://leiyourong.github.io').then(res => {
+  console.log(res)
+})
