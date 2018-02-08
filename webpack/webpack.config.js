@@ -9,11 +9,11 @@ module.exports = {
   context: path.resolve(__dirname, '../src'),
   entry: {
     // bundle: ['./detail.js', 'webpack/hot/dev-server', 'webpack-hot-middleware/client?reload=true'], //mix
-    // bundle:['./react/reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
+    bundle:['./react/reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
     // bundle:['./h5.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],      //h5
     // bundle:['./vueTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
     // bundle:['./vue/start.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader
-    bundle:['./vue/start.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader
+    // bundle:['./vue/start.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader
     // bundle:['./.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader
     vendor: ['jquery']
   },
@@ -75,10 +75,10 @@ module.exports = {
   plugins: [
     new HtmlwebpackPlugin({
       title: 'XXXXX',
-      // template: path.resolve('./public/tmpl/index.tmpl'), // mix react
+      template: path.resolve('./public/tmpl/index.tmpl'), // mix react
       // template: path.resolve('./public/tmpl/h5.tmpl'),  // h5
       // template: path.resolve('./public/tmpl/vue.tmpl'),  // vue
-      template: path.resolve('./public/tmpl/vue2.tmpl'),  // vue
+      // template: path.resolve('./public/tmpl/vue2.tmpl'),  // vue
       // template: path.resolve('./public/tmpl/current.tmpl'),  // 通用空模板
       hash: true,
       inject: true,

@@ -34,3 +34,16 @@ const net = new NetModel()
 net.getUrl('http://leiyourong.github.io').then(res => {
   console.log(res)
 })
+
+var num = {
+  values: [2, 4, 6],
+  curIndex: 0,
+  valueOf: function() {
+    return this.values[this.curIndex++]
+  },
+  toString: function() {
+    return this.values[this.curIndex++]
+  }
+}
+
+console.log(num == 2 && num == 4 && num == 6)
