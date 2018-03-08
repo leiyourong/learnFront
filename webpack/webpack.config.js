@@ -8,8 +8,8 @@ var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin; //代码压缩
 module.exports = {
   context: path.resolve(__dirname, '../src'),
   entry: {
-    // bundle: ['./detail.js', 'webpack/hot/dev-server', 'webpack-hot-middleware/client?reload=true'], //mix
-    bundle:['./react/reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
+    bundle: ['./detail.js', 'webpack/hot/dev-server', 'webpack-hot-middleware/client?reload=true'], //mix
+    // bundle:['./react/reactTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  //react
     // bundle:['./h5.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],      //h5
     // bundle:['./vueTest.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue
     // bundle:['./vue/start.js','webpack/hot/dev-server','webpack-hot-middleware/client?reload=true'],  // vue-loader

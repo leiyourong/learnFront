@@ -34,3 +34,10 @@ npm install -g karma <br>
 npm install -g karma-cli <br>
 npm install <br>
 npm test <br>
+
+#run ese
+npm install -g nightwatch
+npm install chromedriver --save
+npm install seleniumServer
+then add jdk
+npm run e2e

@@ -41,7 +41,7 @@ var config = require('./webpack.config');
 var compiler = webpack(config);
 
 
-// app.use(staticRes(path.resolve(__dirname,'../public')));
+app.use(staticRes(path.resolve(__dirname,'../public')));
 
 app.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
